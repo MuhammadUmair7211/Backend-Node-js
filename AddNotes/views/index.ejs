@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Notes Taking App</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+
+	<body class="bg-zinc-900 w-full min-h-screen">
+		<div class="w-full p-10">
+			<form action="/createPost" method="post" class="text-white">
+				<input
+					type="text"
+					class="block w-full bg-zinc-800 px-3 py-2 outline-none text-zinc-400 text-xl"
+					placeholder="Title goes here..."
+					name="title"
+				/>
+				<textarea
+					class="block w-full bg-zinc-800 px-3 py-2 mt-3 resize-none outline-none text-zinc-400 text-xl"
+					placeholder="Write your task details..."
+					name="details"
+				></textarea>
+				<button class="px-5 py-2 mt-4 bg-blue-600" type="submit">
+					Create Post
+				</button>
+			</form>
+		</div>
+		<div
+			class="tasks w-full flex items-center justify-between flex-wrap p-10 text-zinc-400"
+		>
+			<% if (files.length> 0){%> <% files.forEach((val)=>{%>
+			<div class="task min-w-72 bg-zinc-800 px-3 rounded-md py-4">
+				<h1 class="text-white text-lg"><%= val %></h1>
+				<a href="/file/<%= val %>" class="text-start mt-2 text-blue-700"
+					>Read More</a
+				>
+			</div>
+
+			<%}) %> <% } else{%>
+			<h1 class="text-xl bg-zinc-800 px-3 py-2">No Tasks Yet...!</h1>
+			<%}%>
+		</div>
+	</body>
+</html>

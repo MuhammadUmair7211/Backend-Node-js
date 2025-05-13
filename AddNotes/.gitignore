@@ -1,0 +1,14 @@
+# Skip node_modules
+node_modules/
+
+# Skip environment files
+.env
+
+# Skip logs
+logs
+*.log
+npm-debug.log*
+
+# Skip OS-specific files
+.DS_Store
+Thumbs.db
